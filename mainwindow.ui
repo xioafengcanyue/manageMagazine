@@ -149,13 +149,13 @@ image:url(:/icons/最小化2.png)
       <normaloff>:/icons/最小化.png</normaloff>:/icons/最小化.png</iconset>
     </property>
    </widget>
-   <widget class="QAnimationStackedWidget" name="stackedWidget">
+   <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
       <x>520</x>
-      <y>80</y>
+      <y>40</y>
       <width>461</width>
-      <height>601</height>
+      <height>651</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -475,7 +475,7 @@ color:#FFCC33;
      <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
-        <x>280</x>
+        <x>290</x>
         <y>370</y>
         <width>91</width>
         <height>21</height>
@@ -564,7 +564,7 @@ color:rgb(67, 149, 255);
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>150</y>
+        <y>240</y>
         <width>333</width>
         <height>87</height>
        </rect>
@@ -693,7 +693,7 @@ image:url(:/icons/QLineEdit2.png)
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>490</y>
+        <y>580</y>
         <width>171</width>
         <height>51</height>
        </rect>
@@ -835,7 +835,7 @@ image:url(:/icons/QLineEdit2.png)
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>240</y>
+        <y>330</y>
         <width>333</width>
         <height>87</height>
        </rect>
@@ -943,7 +943,7 @@ image:url(:/icons/QLineEdit2.png)
       <property name="geometry">
        <rect>
         <x>280</x>
-        <y>520</y>
+        <y>610</y>
         <width>81</width>
         <height>21</height>
        </rect>
@@ -972,8 +972,8 @@ color:rgb(67, 149, 255);
      <widget class="QLabel" name="label_13">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>490</y>
+        <x>280</x>
+        <y>580</y>
         <width>111</width>
         <height>21</height>
        </rect>
@@ -992,7 +992,7 @@ color:rgb(67, 149, 255);
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>450</y>
+        <y>540</y>
         <width>115</width>
         <height>19</height>
        </rect>
@@ -1014,7 +1014,7 @@ color:rgb(67, 149, 255);
       <property name="geometry">
        <rect>
         <x>280</x>
-        <y>450</y>
+        <y>540</y>
         <width>115</width>
         <height>19</height>
        </rect>
@@ -1033,7 +1033,7 @@ color:rgb(67, 149, 255);
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>330</y>
+        <y>420</y>
         <width>333</width>
         <height>87</height>
        </rect>
@@ -1138,7 +1138,7 @@ image:url(:/icons/QLineEdit2.png)
       <property name="geometry">
        <rect>
         <x>71</x>
-        <y>420</y>
+        <y>510</y>
         <width>160</width>
         <height>25</height>
        </rect>
@@ -1173,6 +1173,111 @@ image:url(:/icons/QLineEdit2.png)
        <string>用户类别</string>
       </property>
      </widget>
+     <widget class="QWidget" name="layoutWidget_7">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>150</y>
+        <width>333</width>
+        <height>87</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_9">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label_16">
+         <property name="minimumSize">
+          <size>
+           <width>160</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>160</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>91</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>8</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>用户名</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="signInLine4_2">
+         <property name="minimumSize">
+          <size>
+           <width>331</width>
+           <height>41</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>331</width>
+           <height>41</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit{
+border:none;
+image:url(:/icons/QLineEdit.png)
+}
+QLineEdit:hover{
+border:none;
+image:url(:/icons/QLineEdit2.png)
+}</string>
+         </property>
+         <property name="placeholderText">
+          <string>填写用户名</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="signininfo_8">
+         <property name="maximumSize">
+          <size>
+           <width>111</width>
+           <height>21</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:rgb(255, 0, 0)</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </widget>
    <zorder>label_2</zorder>
@@ -1189,12 +1294,6 @@ image:url(:/icons/QLineEdit2.png)
    <class>MoveLabel</class>
    <extends>QLabel</extends>
    <header location="global">movelabel.h</header>
-  </customwidget>
-  <customwidget>
-   <class>QAnimationStackedWidget</class>
-   <extends>QStackedWidget</extends>
-   <header location="global">qanimationstackedwidget.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

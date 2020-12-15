@@ -3,7 +3,6 @@
 #include <QApplication>
 #include"sqlthread.h"
 #include"mydb.h"
-#include"mydb.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

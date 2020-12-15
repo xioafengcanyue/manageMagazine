@@ -1,0 +1,225 @@
+QComboBox {
+    border:2px groove #333333;
+    border-radius: 5px;
+    padding: 1px 2px 1px 2px;
+    min-width: 9em;
+}
+
+QComboBox::drop-down {
+      subcontrol-origin: padding;
+      subcontrol-position: right;
+      width: 30px;
+      border:none;
+ }
+QComboBox::down-arrow {
+   image: url(:/hotel_icon/icons/down_arrow.png);
+	width:15px;
+	height:15px;
+ }
+QComboBox:focus{
+	border: 3px solid #000000;
+}
+
+
+
+
+
+
+QDateEdit::up-button{
+	subcontrol-origin:border;
+	subcontrol-position:right;
+	margin: 3px;
+	width: 30px;
+	height: 30px;
+	image: url(:/hotel_icon/icons/add.png);
+}
+QDateEdit::up-button:hover{
+	subcontrol-origin:border;
+	subcontrol-position:right;
+	margin: 0px;
+	width: 33px;
+	height: 33px;
+	image: url(:/hotel_icon/icons/add.png);
+}
+
+QDateEdit::down-button{
+	subcontrol-origin:border;
+	subcontrol-position:left;
+	margin: 3px;
+	width: 30px;
+	height: 30px;
+	image: url(:/hotel_icon/icons/sub.png);
+}
+QDateEdit::down-button:hover{
+	subcontrol-origin:border;
+	subcontrol-position:left;
+	margin: 0px;
+	width: 33px;
+	height: 33px;
+	image: url(:/hotel_icon/icons/sub.png);
+}
+QDateEdit{
+	border: 2px solid #000000;
+	border-radius: 10px
+}
+QDateEdit:focus{
+	border: 3px solid #000000;
+}
+
+
+
+QDateTimeEdit::up-button{
+	subcontrol-origin:border;
+	subcontrol-position:right;
+	margin: 3px;
+	width: 30px;
+	height: 30px;
+	image: url(:/hotel_icon/icons/add.png);
+}
+QDateTimeEdit::up-button:hover{
+	subcontrol-origin:border;
+	subcontrol-position:right;
+	margin: 0px;
+	width: 33px;
+	height: 33px;
+	image: url(:/hotel_icon/icons/add.png);
+}
+QDateTimeEdit::down-button{
+	subcontrol-origin:border;
+	subcontrol-position:left;
+	margin: 3px;
+	width: 30px;
+	height: 30px;
+	image: url(:/hotel_icon/icons/sub.png);
+}
+QDateTimeEdit::down-button:hover{
+	subcontrol-origin:border;
+	subcontrol-position:left;
+	margin: 0px;
+	width: 33px;
+	height: 33px;
+	image: url(:/hotel_icon/icons/sub.png);
+}
+QDateTimeEdit{
+	border: 2px solid #000000;
+	border-radius: 10px
+}
+QDateTimeEdit:focus{
+	border: 3px solid #000000;
+}
+
+
+QLineEdit{
+border:2px groove #333333;
+border-radius:5px;
+padding:2px 4px;
+}
+QLineEdit:focus{
+	border: 3px solid #000000;
+}
+QPushButton{
+border:2px groove #333333;
+background-color:#333333;
+border-radius:10px;
+padding:2px 4px;
+color:white;
+}
+QPushButton:hover{
+border:2px groove #000000;
+background-color:#000000;
+color:white;
+}
+
+QDateTimeEdit
+{
+border:2px groove #333333;
+border-radius: 5px;
+background-color: white;
+spacing: 5px;
+}
+
+QTableWidget{
+	border:2px solid black;
+	border-radius:10px;
+	selection-color: white;
+    selection-background-color: #d0d0d0;
+}
+QHeaderView{
+	background-color:black;
+	color:white;
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+}
+QHeaderView::section{
+	background-color:black;
+	color:white;
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+}
+
+QTableWidget:disabled{
+	color:#d0d0d0;
+	border:2px solid #d0d0d0;
+	border-radius:10px;
+	selection-color: white;
+    selection-background-color: #d0d0d0;
+}
+QHeaderView:disabled{
+	background-color:#d0d0d0;
+	color:white;
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+}
+QHeaderView::section:disabled{
+	background-color:#d0d0d0;
+	color:white;
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+}
+
+
+
+
+QSpinBox::up-button{
+	subcontrol-origin:border;
+	subcontrol-position:right;
+	margin: 3px;
+	width: 30px;
+	height: 30px;
+	image:url(:/hotel_icon/icons/add.png);
+}
+QSpinBox::up-button:hover{
+	subcontrol-origin:border;
+	subcontrol-position:right;
+	margin: 0px;
+	width: 33px;
+	height: 33px;
+	image:url(:/hotel_icon/icons/add.png);
+}
+
+QSpinBox::down-button{
+	subcontrol-origin:border;
+	subcontrol-position:left;
+	margin: 3px;
+	width: 30px;
+	height: 30px;
+	image:url(:/hotel_icon/icons/sub.png);
+}
+QSpinBox::down-button:hover{
+	subcontrol-origin:border;
+	subcontrol-position:left;
+	margin: 0px;
+	width: 33px;
+	height: 33px;
+	image:url(:/hotel_icon/icons/sub.png);
+}
+QSpinBox{
+	border: 2px solid #000000;
+	border-radius: 5px
+}
+
+QSpinBox:focus{
+	border: 3px solid #000000;
+}
+
+

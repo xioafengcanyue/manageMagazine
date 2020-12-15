@@ -2,6 +2,8 @@
 #define MAINWINDOW2_H
 
 #include <QMainWindow>
+#include"promptwindow.h"
+#include"orderwindow.h"
 #include"mydb.h"
 namespace Ui {
 class MainWindow2;
@@ -23,6 +25,9 @@ public:
     void setUserNum(QString value);
     void setUserInfo();
     void setAdmin();
+    void insertOrderTable(bool b,QString s1,QString s2,QString s3);
+
+    void setUserName(const QString &value);
 
 private slots:
 
@@ -47,13 +52,29 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_choose1_clicked();
+
+    void on_choose2_clicked();
+
+    void on_choose3_clicked();
+
+    void on_pushButton_14_clicked();
+
+    void on_pushButton_5_clicked();
+
+
+    void on_pushButton_15_clicked();
+
 private:
     Ui::MainWindow2 *ui;
     MyDB *db;
     int page;
     QVector<QVector<QString>> searchAns;
+    PromptWindow *proWindow;
+    OrderWindow *orderWindow;
     QString oldWord;
     QString userNum;
+    QString userName;
 };
 
 #endif // MAINWINDOW2_H

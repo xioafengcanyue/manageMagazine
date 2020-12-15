@@ -31,10 +31,9 @@ SOURCES += \
     mydb.cpp \
     mainwindow2.cpp \
     bookwidget.cpp \
-    PageWidget.cpp \
-    Widget.cpp \
-    qanimationstackedwidget.cpp \
-    sqlthread.cpp
+    sqlthread.cpp \
+    promptwindow.cpp \
+    orderwindow.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -42,17 +41,16 @@ HEADERS += \
     mydb.h \
     mainwindow2.h \
     bookwidget.h \
-    PageWidget.h \
-    Widget.h \
-    qanimationstackedwidget.h \
-    sqlthread.h
+    sqlthread.h \
+    promptwindow.h \
+    orderwindow.h
 
 FORMS += \
     mainwindow.ui \
     mainwindow2.ui \
     bookwidget.ui \
-    PageWidget.ui \
-    Widget.ui
+    promptwindow.ui \
+    orderwindow.ui
 
 RESOURCES += \
     myicon.qrc

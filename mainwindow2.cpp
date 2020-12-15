@@ -3,13 +3,20 @@
 #include"bookwidget.h"
 #include"PageWidget.h"
 #include<QDebug>
+#include<QGraphicsDropShadowEffect>
+
 MainWindow2::MainWindow2(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow2)
 {
+    proWindow=new PromptWindow();
+    orderWindow=new OrderWindow();
     page=0;
     oldWord="";
     ui->setupUi(this);
+    ui->blackLabel->hide();
+    connect(proWindow,&PromptWindow::hasConfirm,ui->blackLabel,&QLabel::hide);
+    connect(orderWindow,&OrderWindow::hasOver,this,&MainWindow2::insertOrderTable);
     ui->label_2->setParent(this);
     ui->pushButton->setParent(this);
     ui->pushButton_2->setParent(this);
@@ -17,6 +24,16 @@ MainWindow2::MainWindow2(QWidget *parent) :
     ui->pushButton_4->setParent(this);
     ui->pushButton_6->setParent(this);
     ui->searchInfoLabel->hide();
+    //QWebEngineView *web=new QWebEngineView();
+
+//    ui->label_2->setAttribute(Qt::WA_TranslucentBackground);
+//    //边框阴影效果
+//    QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect;
+//    effect->setBlurRadius(6);
+//    effect->setColor(Qt::black);
+//    effect->setOffset(0,0);
+//    ui->label_2->setGraphicsEffect(effect);
+//    ui->label_2->update();
 
     this->setWindowFlags(Qt::FramelessWindowHint);
 //    for(int i=0;i<2;i++){
@@ -155,7 +172,22 @@ void MainWindow2::setUserInfo()
 void MainWindow2::setAdmin()
 {
     ui->pushButton_4->hide();
-    ui->pushButton_6->setGeometry(729,1,111,41);
+    ui->pushButton_15->hide();
+}
+
+void MainWindow2::insertOrderTable(bool b,QString s1,QString s2,QString s3)
+{
+    if(b){
+        bool hasInsert=db->insertOrder(s1,s2,s3);
+        if(hasInsert){
+            qDebug()<<"OK INSERT";
+            setUserInfo();
+        }
+        else{
+            qDebug()<<"ERROT INSERT";
+        }
+    }
+    ui->blackLabel->hide();
 }
 
 void MainWindow2::on_pushButton_13_clicked()
@@ -223,12 +255,17 @@ void MainWindow2::on_pushButton_9_clicked()
         catInfo.push_back(line[i]->text());
     bool isInsert=db->insertCat(catInfo);
     if(isInsert){
-        qDebug()<<"OK";
-        for(QLineEdit* li:line)
-            li->clear();
-        for(QLabel* la:lab)
-            la->clear();
+        proWindow->setInfo(isInsert,"登记成功","");
     }
+    else{
+         proWindow->setInfo(isInsert,"登记失败","重复登记");
+    }
+    for(QLineEdit* li:line)
+        li->clear();
+    for(QLabel* la:lab)
+        la->clear();
+    this->proWindow->show();
+    ui->blackLabel->show();
 }
 
 
@@ -246,10 +283,10 @@ void MainWindow2::on_pushButton_10_clicked()
     line.push_back(ui->lineEdit_23);
     line.push_back(ui->lineEdit_24);
     line.push_back(ui->lineEdit_25);
+    lab.push_back(ui->label_74);
     lab.push_back(ui->label_76);
     lab.push_back(ui->label_78);
     lab.push_back(ui->label_80);
-    lab.push_back(ui->label_82);
     int k=-1;
     for(int i=0;i<info.size();i++){
         lab[i]->clear();
@@ -260,6 +297,7 @@ void MainWindow2::on_pushButton_10_clicked()
             break;
         }
     }
+    qDebug()<<k;
     if(k!=-1){
         lab[k]->setText(info[k]);
         return;
@@ -268,16 +306,26 @@ void MainWindow2::on_pushButton_10_clicked()
         magInfo.push_back(line[i]->text());
     bool isInsert=db->insertMag(magInfo);
     if(isInsert){
-        qDebug()<<"OK";
-        for(QLineEdit* li:line)
-            li->clear();
-        for(QLabel* la:lab)
-            la->clear();
+        proWindow->setInfo(isInsert,"登记成功","");
     }
+    else{
+         proWindow->setInfo(isInsert,"登记失败","重复登记");
+    }
+    for(QLineEdit* li:line)
+        li->clear();
+    for(QLabel* la:lab)
+        la->clear();
+    this->proWindow->show();
+    ui->blackLabel->show();
 }
 
 void MainWindow2::on_pushButton_11_clicked()
 {
+    if(ui->stackedWidget_2->currentIndex()==0)
+        on_pushButton_9_clicked();
+    else if(ui->stackedWidget_2->currentIndex()==1)
+        on_pushButton_10_clicked();
+    else{
     QVector<QString> info;
     info.push_back("请输入期刊名称");
     info.push_back("请输入期刊年份");
@@ -330,24 +378,37 @@ void MainWindow2::on_pushButton_11_clicked()
         conInfo.push_back(line[i]->text());
     bool isInsert=db->insertCon(conInfo);
     if(isInsert){
-        qDebug()<<"OK";
+        proWindow->setInfo(isInsert,"登记成功","");
         for(QLineEdit* li:line)
             li->clear();
         for(QLabel* la:lab)
             la->clear();
     }
+    else{
+         proWindow->setInfo(isInsert,"登记失败","重复登记");
+    }
+    for(QLineEdit* li:line)
+        li->clear();
+    for(QLabel* la:lab)
+        la->clear();
+    this->proWindow->show();
+    ui->blackLabel->show();
+    }
+
 }
 
 void MainWindow2::on_pushButton_12_clicked()
 {
-    bool hasBro=db->userBor(userNum,"123",ui->nameInfo->text(),ui->dateInfo->text());
+    bool hasBro=db->userBor(userNum,userName,ui->nameInfo->text(),ui->dateInfo->text());
     if(hasBro){
-        qDebug()<<"借阅成功";
+        proWindow->setInfo(hasBro,"成功借阅","");
+        setUserInfo();
     }
     else{
-        qDebug()<<"已经借阅";
-
+        proWindow->setInfo(hasBro,"借阅失败","已被借阅");
     }
+    this->proWindow->show();
+    ui->blackLabel->show();
 
 }
 
@@ -361,4 +422,79 @@ void MainWindow2::on_pushButton_3_clicked()
 {
     page=1;
     ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow2::on_choose1_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(0);
+}
+
+void MainWindow2::on_choose2_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(1);
+}
+
+void MainWindow2::on_choose3_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(2);
+}
+
+void MainWindow2::on_pushButton_14_clicked()
+{
+    ui->blackLabel->show();
+    orderWindow->show();
+}
+
+void MainWindow2::on_pushButton_5_clicked()
+{
+    int row=ui->tableWidget_2->currentRow();
+    if(row<0)
+        return;
+    if(ui->tableWidget_2->item(row,5)->text().size()==0){
+        QVector<QString> returnInfo;
+        returnInfo.push_back(userNum);
+        returnInfo.push_back(userName);
+        for(int i=0;i<ui->tableWidget_2->columnCount()-1;i++)
+            returnInfo.push_back(ui->tableWidget_2->item(row,i)->text());
+        db->returnBook(returnInfo);
+        setUserInfo();
+        QString s=ui->tableWidget_2->item(row,0)->text()+ui->tableWidget_2->item(row,1)->text()+"年"+ui->tableWidget_2->item(row,2)->text()+"卷"+ui->tableWidget_2->item(row,3)->text()+"期成功归还";
+        proWindow->setInfo(true,"归还成功",s);
+        proWindow->show();
+    }
+    else{
+        proWindow->setInfo(false,"归还失败","已经归还，无需再次归还");
+        proWindow->show();
+        qDebug()<<"已经归还，无需再次归还";
+    }
+}
+
+void MainWindow2::setUserName(const QString &value)
+{
+    userName = value;
+    ui->label_11->setText(userName);
+}
+
+void MainWindow2::on_pushButton_15_clicked()
+{
+    int row=ui->tableWidget_3->currentRow();
+    if(row<0)
+        return;
+    ui->blackLabel->show();
+    if(ui->tableWidget_3->item(row,3)->text()=="否"){
+        qDebug()<<"ok";
+        QVector<QString> returnInfo;
+        for(int i=0;i<ui->tableWidget_3->columnCount()-1;i++)
+            returnInfo.push_back(ui->tableWidget_3->item(row,i)->text());
+        db->confirmOrder(returnInfo);
+        setUserInfo();
+        QString s="征订成功";
+        proWindow->setInfo(true,"征订成功","");
+        proWindow->show();
+    }
+    else{
+        proWindow->setInfo(false,"征订失败","已经征订，无需再次征订");
+        proWindow->show();
+        qDebug()<<"已经归还，无需再次归还";
+    }
 }

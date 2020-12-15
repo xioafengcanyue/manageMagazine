@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/全屏最大化.png</file>
+        <file>icons/退出.png</file>
+        <file>icons/最小化.png</file>
+        <file>icons/全屏最大化2.png</file>
+        <file>icons/删除2.png</file>
+        <file>icons/退出2.png</file>
+        <file>icons/最小化2.png</file>
+        <file>icons/QLineEdit.png</file>
+        <file>icons/QLineEdit2.png</file>
+        <file>icons/登录.png</file>
+        <file>icons/readlife.png</file>
+        <file>icons/按钮下划线.png</file>
+        <file>icons/搜索.png</file>
+        <file>icons/搜索2.png</file>
+        <file>icons/backbook.jpg</file>
+        <file>icons/未找到.png</file>
+        <file>icons/backbook1.jpg</file>
+        <file>icons/成功.png</file>
+        <file>icons/错误.png</file>
+    </qresource>
+</RCC>
